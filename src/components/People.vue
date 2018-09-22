@@ -1,13 +1,13 @@
 <template>
   <div class="people">
     <h2>People</h2>
-    <hr>
-
+    <hr><hr>
     <div class="container">
       <div v-for="(item, index) in dataInPeople" :key="index">
         <h3>Name: {{item.name}}</h3>
         <p>Telefon no: <span>{{item.phone}}</span></p>
         <p>Email: <span>{{item.email}}</span></p>
+        <hr>
       </div>
     </div>
 
@@ -31,7 +31,7 @@ export default {
 <style scoped>
   .container {
     margin-top: 10px;
-    height: calc(100vh - 150px);
+    height: calc(100vh - 160px);
     overflow: scroll;
   }
   .container span {

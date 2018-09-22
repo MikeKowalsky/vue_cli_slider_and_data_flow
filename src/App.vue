@@ -10,11 +10,11 @@
         <router-link to="/">
           <span>Home</span>
         </router-link>
-        <router-link :to="{ name: 'people', params: { dataToPass: this.data } }">
-          <span>People</span>
-        </router-link>
         <router-link to="/about">
           <span>About</span>
+        </router-link>
+        <router-link :to="{ name: 'people', params: { dataToPass: this.data } }">
+          <span>People</span>
         </router-link>
         <router-link to="/contact">
           <span>Contact</span>
@@ -69,9 +69,27 @@ body {
   height: 100vh;
   width: 100vw;
   background: url(assets/bcg.jpg);
+  background-repeat: no-repeat;
 }
 
+/* !! overwriting imported sidebar styles !! */
 .basicView {
-  padding-top: 50px;
+  padding-top: 70px;
+}
+
+.bm-menu {
+  background-color: rgba(255, 193, 7, .9);
+}
+
+.bm-cross {
+  background: blue;
+}
+
+.bm-item-list > * > span {
+  color: blue;
+}
+
+.bm-burger-bars {
+  background-color: white;
 }
 </style>
