@@ -1,31 +1,77 @@
 <template>
   <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
+
+    <div v-if="isLoading">
+      <p>Loading ...</p>
     </div>
-    <router-view/>
+
+    <div v-else>
+      <Slide width="200">
+        <router-link to="/">
+          <span>Home</span>
+        </router-link>
+        <router-link to="/people">
+          <span>People</span>
+        </router-link>
+        <router-link to="/about">
+          <span>About</span>
+        </router-link>
+        <router-link to="/contact">
+          <span>Contact</span>
+        </router-link>
+      </Slide>
+
+      <div class="basicView">
+        <router-view/>
+      </div>
+    </div>
+
   </div>
 </template>
 
+<script>
+import { Slide } from 'vue-burger-menu'
+
+export default {
+  components: {
+    Slide
+  },
+  data () {
+    return {
+      data: null,
+      isLoading: true
+    }
+  },
+  beforeCreate () {
+    fetch('https://jsonplaceholder.typicode.com/users')
+      .then(response => response.json())
+      .then(dataFromServer => {
+        this.data = dataFromServer
+        console.log(this.data)
+        this.isLoading = false
+      })
+  }
+}
+</script>
+
 <style>
+body {
+  margin: 0;
+}
+
 #app {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
-  color: #2c3e50;
-}
-#nav {
-  padding: 30px;
+  color: white;
+
+  height: 100vh;
+  width: 100vw;
+  background: url(assets/bcg.jpg);
 }
 
-#nav a {
-  font-weight: bold;
-  color: #2c3e50;
-}
-
-#nav a.router-link-exact-active {
-  color: #42b983;
+.basicView {
+  padding-top: 50px;
 }
 </style>
