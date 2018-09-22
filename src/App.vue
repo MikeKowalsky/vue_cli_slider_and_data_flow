@@ -10,7 +10,7 @@
         <router-link to="/">
           <span>Home</span>
         </router-link>
-        <router-link to="/people">
+        <router-link :to="{ name: 'people', params: { dataToPass: this.data } }">
           <span>People</span>
         </router-link>
         <router-link to="/about">

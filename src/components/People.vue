@@ -1,18 +1,40 @@
 <template>
   <div class="people">
-      <p>People</p>
+    <h2>People</h2>
+    <hr>
+
+    <div class="container">
+      <div v-for="(item, index) in dataInPeople" :key="index">
+        <h3>Name: {{item.name}}</h3>
+        <p>Telefon no: <span>{{item.phone}}</span></p>
+        <p>Email: <span>{{item.email}}</span></p>
+      </div>
+    </div>
+
   </div>
 </template>
 
 <script>
-// @ is an alias to /src
-// import HelloWorld from '@/components/HelloWorld.vue'
-
 export default {
   name: 'people',
-  props
+  data () {
+    return {
+      dataInPeople: null
+    }
+  },
+  created () {
+    this.dataInPeople = this.$route.params.dataToPass
+  }
 }
 </script>
 
 <style scoped>
+  .container {
+    margin-top: 10px;
+    height: calc(100vh - 150px);
+    overflow: scroll;
+  }
+  .container span {
+    font-weight: bold;
+  }
 </style>
