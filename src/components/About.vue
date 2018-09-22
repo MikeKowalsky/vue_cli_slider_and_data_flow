@@ -16,7 +16,7 @@
       </a>
     </p>
 
-    <span>This app code is here:</span>
+    <span>Code is here:</span>
     <p>
       <a href="https://github.com/MikeKowalsky/vue_cli_slider_and_data_flow" target="_blank">
         Go to Git Hub!
