@@ -57,6 +57,8 @@ export default {
   .item{
       width: 70vw;
       background-color: rgba(211, 211, 211, .4);
+      color: black;
+      font-weight: bold;
       margin: 5px 0;
       padding: 5px 0;
   }

@@ -73,6 +73,7 @@ body {
   width: 100vw;
   background: url(assets/bcg.jpg);
   background-repeat: no-repeat;
+  background-size: cover;
 }
 
 /* !! overwriting imported sidebar styles !! */
