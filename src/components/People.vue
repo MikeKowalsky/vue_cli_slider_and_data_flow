@@ -18,16 +18,17 @@
 <script>
 export default {
   name: 'people',
-  // data () {
-  //   return {
-  //     dataInPeople: null
-  //   }
-  // },
+  // two solutions are fine, computed or data + created
   computed: {
     dataInPeople () {
       return this.$route.params.dataToPass
     }
   }
+  // data () {
+  //   return {
+  //     dataInPeople: null
+  //   }
+  // },
   // created () {
   //   this.dataInPeople = this.$route.params.dataToPass
   //   console.log(this.dataInPeople)

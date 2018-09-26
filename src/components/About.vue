@@ -8,8 +8,17 @@
       <!-- <span>All info about this component you can find here:</span> -->
       <p class="bold">This example 'solves' 3 possible problems:</p>
       <p>1. Passing object through router-link</p>
+      <!-- I'm fetching data in App component and passing the whole object to People.
+      In People I need to receive data with this.$route.params.fieldNameSetUpInRouterLink.
+      Problem: if you refresh the page from /people path then there is no data,
+      because to activate this passing process you need to click a link. -->
       <p>2. img :src in vue/cli</p>
-      <p>3. Working simple slide menu</p>
+      <!-- In simple vue instance it's enough to do this ->
+      :src="`../assets/${something}.jpg`"
+      but in vue/cli it's more complicate ...
+      example in Teams-->
+      <p>3. Working simple side menu</p>
+      <!-- no comment ;-) -->
       <p class="bold">Some links: </p>
 
       <a href="https://vuejsexamples.com/an-off-canvas-sidebar-vue-component/" target="_blank">
