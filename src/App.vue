@@ -16,6 +16,9 @@
         <router-link :to="{ name: 'people', params: { dataToPass: this.data } }">
           <span>People</span>
         </router-link>
+        <router-link to="/teams">
+          <span>Teams</span>
+        </router-link>
         <router-link to="/contact">
           <span>Contact</span>
         </router-link>
@@ -47,7 +50,7 @@ export default {
       .then(response => response.json())
       .then(dataFromServer => {
         this.data = dataFromServer
-        console.log(this.data)
+        // console.log(this.data)
         this.isLoading = false
       })
   }
@@ -78,18 +81,18 @@ body {
 }
 
 .bm-menu {
-  background-color: rgba(255, 193, 7, .9);
+  background-color: rgba(255, 193, 7, .9) !important;
 }
 
 .bm-cross {
-  background: blue;
+  background: blue !important;
 }
 
 .bm-item-list > * > span {
-  color: blue;
+  color: blue !important;
 }
 
 .bm-burger-bars {
-  background-color: white;
+  background-color: white !important;
 }
 </style>

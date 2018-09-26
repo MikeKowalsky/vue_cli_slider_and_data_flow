@@ -2,6 +2,7 @@
   <div class="people">
     <h2>People</h2>
     <hr><hr>
+
     <div class="container">
       <div v-for="(item, index) in dataInPeople" :key="index">
         <h3>Name: {{item.name}}</h3>
@@ -17,14 +18,20 @@
 <script>
 export default {
   name: 'people',
-  data () {
-    return {
-      dataInPeople: null
+  // data () {
+  //   return {
+  //     dataInPeople: null
+  //   }
+  // },
+  computed: {
+    dataInPeople () {
+      return this.$route.params.dataToPass
     }
-  },
-  created () {
-    this.dataInPeople = this.$route.params.dataToPass
   }
+  // created () {
+  //   this.dataInPeople = this.$route.params.dataToPass
+  //   console.log(this.dataInPeople)
+  // },
 }
 </script>
 
@@ -33,8 +40,5 @@ export default {
     margin-top: 10px;
     height: calc(100vh - 160px);
     overflow: scroll;
-  }
-  .container span {
-    font-weight: bold;
   }
 </style>

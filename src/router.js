@@ -30,6 +30,11 @@ export default new Router({
       path: '/people',
       name: 'people',
       component: () => import('./components/People.vue')
+    },
+    {
+      path: '/teams',
+      name: 'teams',
+      component: () => import('./components/Teams.vue')
     }
   ]
 })
