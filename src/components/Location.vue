@@ -8,10 +8,7 @@
       <button @click="showLocation">Get location</button>
 
       <div v-if="active" class="location">
-        <div v-if="isLoading">
-          <p>... loading ...</p>
-          <p>... please wait ...</p>
-        </div>
+        <pulse-loader v-if="isLoading" color="white" size="40px"></pulse-loader>
 
         <div v-else>
           <p>Your coordinates</p>
@@ -27,8 +24,12 @@
 </template>
 
 <script>
+import PulseLoader from "vue-spinner/src/PulseLoader.vue";
 export default {
   name: "location",
+  components: {
+    PulseLoader
+  },
   data() {
     return {
       coordinates: {},

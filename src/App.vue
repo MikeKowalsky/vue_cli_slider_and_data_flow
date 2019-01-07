@@ -1,8 +1,8 @@
 <template>
   <div id="app">
 
-    <div v-if="isLoading">
-      <p>Loading ...</p>
+    <div v-if="isLoading" class="loader">
+      <pulse-loader color="white" size="40px"></pulse-loader>
     </div>
 
     <div v-else>
@@ -37,10 +37,12 @@
 
 <script>
 import { Slide } from "vue-burger-menu";
+import PulseLoader from "vue-spinner/src/PulseLoader.vue";
 
 export default {
   components: {
-    Slide
+    Slide,
+    PulseLoader
   },
   data() {
     return {
@@ -77,6 +79,14 @@ body {
   background: url(assets/bcg.jpg);
   background-repeat: no-repeat;
   background-size: cover;
+}
+
+.loader {
+  height: 90%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
 /* !! overwriting imported sidebar styles !! */
