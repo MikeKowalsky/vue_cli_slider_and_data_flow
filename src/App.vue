@@ -13,11 +13,14 @@
         <router-link to="/about">
           <span>About</span>
         </router-link>
-        <router-link :to="{ name: 'people', params: { dataToPass: this.data } }">
+        <router-link :to="{ name: 'people', params: { dataToPass: this.fetchedData } }">
           <span>People</span>
         </router-link>
         <router-link to="/teams">
           <span>Teams</span>
+        </router-link>
+        <router-link to="/location">
+          <span>Location</span>
         </router-link>
         <router-link to="/contact">
           <span>Contact</span>
@@ -33,28 +36,28 @@
 </template>
 
 <script>
-import { Slide } from 'vue-burger-menu'
+import { Slide } from "vue-burger-menu";
 
 export default {
   components: {
     Slide
   },
-  data () {
+  data() {
     return {
-      data: null,
+      fetchedData: null,
       isLoading: true
-    }
+    };
   },
-  beforeCreate () {
-    fetch('https://jsonplaceholder.typicode.com/users')
+  beforeCreate() {
+    fetch("https://jsonplaceholder.typicode.com/users")
       .then(response => response.json())
       .then(dataFromServer => {
-        this.data = dataFromServer
-        // console.log(this.data)
-        this.isLoading = false
-      })
+        this.fetchedData = dataFromServer;
+        console.log(this.fetchedData);
+        this.isLoading = false;
+      });
   }
-}
+};
 </script>
 
 <style>
@@ -63,7 +66,7 @@ body {
 }
 
 #app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
+  font-family: "Avenir", Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
@@ -82,7 +85,7 @@ body {
 }
 
 .bm-menu {
-  background-color: rgba(255, 193, 7, .9) !important;
+  background-color: rgba(255, 193, 7, 0.9) !important;
 }
 
 .bm-cross {
